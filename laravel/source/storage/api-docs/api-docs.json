@@ -1,0 +1,2213 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/category": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Get All Category",
+                "operationId": "174eaa7695390e7c34bc0ac68fa70ea0",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pagesize",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Add Category",
+                "operationId": "c9ec0a8cfdaf43141fee305b040272a3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    },
+                                    "text": {
+                                        "type": "string"
+                                    },
+                                    "img": {
+                                        "type": "string"
+                                    },
+                                    "parentsId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/category/{id}": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Get Category",
+                "operationId": "f0c3183fe0c45019dcd75f9529660bf6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The event ID specific to this event",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Add Category",
+                "operationId": "a592d77165948f82c9e0eb551448bf54",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    },
+                                    "text": {
+                                        "type": "string"
+                                    },
+                                    "img": {
+                                        "type": "string"
+                                    },
+                                    "parentsId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Delete Category",
+                "operationId": "d39845ee81a52b82283e3bdebaecec07",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The event ID specific to this event",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/collection": {
+            "get": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Get All Collection",
+                "operationId": "eb12869cbb35bb1ff8c9c4ba254f6365",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Add Collection",
+                "operationId": "fbb0ab182f3df78e4dc8706ec7371067",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    },
+                                    "mobileBanner": {
+                                        "type": "string"
+                                    },
+                                    "pcBanner": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/collection/{id}": {
+            "get": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Get Collection",
+                "operationId": "1e1b2adadfa149ffdd80d620be43926b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Update Collection",
+                "operationId": "39cb17e2de59d134601bcb18a3b12a70",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    },
+                                    "mobileBanner": {
+                                        "type": "string"
+                                    },
+                                    "pcBanner": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Delete Collection",
+                "operationId": "6bff379db59bea13f4844873ac60ffbb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/color": {
+            "get": {
+                "tags": [
+                    "Color"
+                ],
+                "summary": "Get All Color",
+                "operationId": "c5c78438dd88d26150442c9b275e0356",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Color"
+                ],
+                "summary": "Add Category",
+                "operationId": "ba095fa7acd4e695631e7c0752cada95",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/color/{id}": {
+            "get": {
+                "tags": [
+                    "Color"
+                ],
+                "summary": "Get Color",
+                "operationId": "f7a5cbf38867eeaaae7833223fc50157",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Color"
+                ],
+                "summary": "Update Category",
+                "operationId": "ea0c7d63dc1a77bd488ce7611920866c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Color"
+                ],
+                "summary": "Delete Color",
+                "operationId": "2b35f197994112aa896e599d1ee4dda4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/detailreceipt": {
+            "get": {
+                "tags": [
+                    "DetailReceipt"
+                ],
+                "summary": "Get All DetailReceipt",
+                "operationId": "b6987cde987abf80f9054a996b9bde85",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "DetailReceipt"
+                ],
+                "summary": "Add DetailReceipt",
+                "operationId": "c23ab12a2594af274abac70c9eb5f6b5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "receiptId": {
+                                        "type": "integer"
+                                    },
+                                    "variantId": {
+                                        "type": "integer"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/detailreceipt/{id}": {
+            "get": {
+                "tags": [
+                    "DetailReceipt"
+                ],
+                "summary": "Get DetailReceipt",
+                "operationId": "a0eba3df76bb0c5ee1c1afc4e7be26ea",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "DetailReceipt"
+                ],
+                "summary": "Update DetailReceipt",
+                "operationId": "a8740ccd41ad6cb05c9ade3d7323ef09",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "receiptId": {
+                                        "type": "integer"
+                                    },
+                                    "variantId": {
+                                        "type": "integer"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DetailReceipt"
+                ],
+                "summary": "Delete DetailReceipt",
+                "operationId": "08231d79b17c1b71d19a1aa0c63b8738",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/image": {
+            "get": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Get All Image",
+                "operationId": "a9ebfd028263c21d5828dc0b18579234",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Add Image",
+                "operationId": "eee9961c7d41fa294a590e08fd5e9296",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "variantId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/image/{id}": {
+            "get": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Get Image",
+                "operationId": "c343f5b4d8a1a540c30568616b6ffd4d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Update Image",
+                "operationId": "8762af91bafd1a93ef3d7c0b1cd8d75d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "variantId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Delete Image",
+                "operationId": "405d5dc41ba6f72ffc5ed8fcf33bf9d6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/productcollection": {
+            "get": {
+                "tags": [
+                    "ProductCollection"
+                ],
+                "summary": "Get All ProductCollection",
+                "operationId": "12513af85c21b4dd765f2885c6d7c2b9",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ProductCollection"
+                ],
+                "summary": "Add ProductCollection",
+                "operationId": "3fab329f5595daae6c859c8f7dd18cb3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "productId": {
+                                        "type": "integer"
+                                    },
+                                    "collectionId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/productcollection/{id}": {
+            "get": {
+                "tags": [
+                    "ProductCollection"
+                ],
+                "summary": "Get ProductCollection",
+                "operationId": "7810c761033149a9193516e0ae40f1b5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ProductCollection"
+                ],
+                "summary": "Update ProductCollection",
+                "operationId": "d2ef057dc5d01bbfc38b3bfc648ea454",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "productId": {
+                                        "type": "integer"
+                                    },
+                                    "collectionId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ProductCollection"
+                ],
+                "summary": "Delete ProductCollection",
+                "operationId": "33cc7d8c0e45e0c7b21ce2f27e9ebbb9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/product": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get All Product",
+                "operationId": "abaab995052fab833e97e8aedd43b4c4",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Add Producy",
+                "operationId": "fc80e62d133acca27198e0cacc4f4563",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "img": {
+                                        "type": "string"
+                                    },
+                                    "categoryId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    },
+                                    "variant": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "colorId": {
+                                                    "type": "integer"
+                                                },
+                                                "thumbnail": {
+                                                    "type": "string"
+                                                },
+                                                "deleted": {
+                                                    "type": "integer"
+                                                },
+                                                "sizes": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "size": {
+                                                                "type": "integer"
+                                                            },
+                                                            "quantity": {
+                                                                "type": "integer"
+                                                            },
+                                                            "deleted": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "url": {
+                                                                "type": "string"
+                                                            },
+                                                            "deleted": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/product/{id}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get Product",
+                "operationId": "0da5a3cf49f07dcc72e81fd17a533b17",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Update Producy",
+                "operationId": "a26d322edffbecf51bc0a8c5dae55c5e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "img": {
+                                        "type": "string"
+                                    },
+                                    "categoryId": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    },
+                                    "variant": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "colorId": {
+                                                    "type": "integer"
+                                                },
+                                                "thumbnail": {
+                                                    "type": "string"
+                                                },
+                                                "deleted": {
+                                                    "type": "integer"
+                                                },
+                                                "sizes": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "size": {
+                                                                "type": "integer"
+                                                            },
+                                                            "quantity": {
+                                                                "type": "integer"
+                                                            },
+                                                            "deleted": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Delete Product",
+                "operationId": "5384430690c4195dc00a9595356d9056",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/productsale": {
+            "get": {
+                "tags": [
+                    "ProductSale"
+                ],
+                "summary": "Get All ProductSale",
+                "operationId": "e13d73239ccb90b63a1c0612ffb3c850",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ProductSale"
+                ],
+                "summary": "Add ProductSale",
+                "operationId": "fb0ae373fd8a6e89e23931b3cac36995",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "productid": {
+                                        "type": "integer"
+                                    },
+                                    "saleid": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/productsale/{id}": {
+            "get": {
+                "tags": [
+                    "ProductSale"
+                ],
+                "summary": "Get ProductSale",
+                "operationId": "e85bc0fe2d202fd3c063a4e9b4e00ee9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ProductSale"
+                ],
+                "summary": "Update ProductSale",
+                "operationId": "2a3e11181e6a8ba4b6f93268fc492080",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "productid": {
+                                        "type": "integer"
+                                    },
+                                    "saleid": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ProductSale"
+                ],
+                "summary": "Delete ProductSale",
+                "operationId": "1d8ed2c591bbebd5ecad3d1bc74a6259",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/receipt": {
+            "get": {
+                "tags": [
+                    "Receipt"
+                ],
+                "summary": "Get All Receipt",
+                "operationId": "7a58e266cdd0ac1bcc799958c4d03c51",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Receipt"
+                ],
+                "summary": "Add Receipt",
+                "operationId": "ba87ba0047e1b80c64588f5b9446f820",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "timeOrder": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "paymentTime": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "paymentMethod": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/receipt/{id}": {
+            "get": {
+                "tags": [
+                    "Receipt"
+                ],
+                "summary": "Get Receipt",
+                "operationId": "c2c4109534951f8ea9ff15f6fe7c99a5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Receipt"
+                ],
+                "summary": "Update Receipt",
+                "operationId": "1f5e86903246fe63c9a5fa1d37d04f33",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "timeOrder": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "paymentTime": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "paymentMethod": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Receipt"
+                ],
+                "summary": "Delete Receipt",
+                "operationId": "ebe0ea885826f280cfb46cc6f7cba0e0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/salepromotion": {
+            "get": {
+                "tags": [
+                    "SalePromotion"
+                ],
+                "summary": "Get All SalePromotion",
+                "operationId": "9ce58c722dd8c4f225c63cac12620c71",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "SalePromotion"
+                ],
+                "summary": "Add SalePromotion",
+                "operationId": "b3a78726ba830f3579ff0eb67fd7e762",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "discount": {
+                                        "type": "integer"
+                                    },
+                                    "timeStart": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "timeEnd": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    },
+                                    "mobileBanner": {
+                                        "type": "string"
+                                    },
+                                    "pcBanner": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/salepromotion/{id}": {
+            "get": {
+                "tags": [
+                    "SalePromotion"
+                ],
+                "summary": "Get SalePromotion",
+                "operationId": "5162baa99635082cdcd3d6de52d8e712",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SalePromotion"
+                ],
+                "summary": "Update SalePromotion",
+                "operationId": "0e2549849744b8ce352ccd0e47bb02ee",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "discount": {
+                                        "type": "integer"
+                                    },
+                                    "timeStart": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "timeEnd": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    },
+                                    "mobileBanner": {
+                                        "type": "string"
+                                    },
+                                    "pcBanner": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "SalePromotion"
+                ],
+                "summary": "Delete SalePromotion",
+                "operationId": "e5bd0f0e726ed17ada4ec4aaa746e6d1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/size": {
+            "get": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Get All Size",
+                "operationId": "b16f635ab6feb58eddbb871f3872e6a0",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Add Size",
+                "operationId": "21c1192edd6b089d98b149119a079eea",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "variantId": {
+                                        "type": "integer"
+                                    },
+                                    "size": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/size/{id}": {
+            "get": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Get Size",
+                "operationId": "5754368bc14669a6b09abfb6f71d856a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Update Size",
+                "operationId": "96ae4a38b4d2e4fc2dcd154dda0242df",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "variantId": {
+                                        "type": "integer"
+                                    },
+                                    "size": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Delete Size",
+                "operationId": "9203b09e4f108c3bbff22c2f6424730b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/variation": {
+            "get": {
+                "tags": [
+                    "Variation"
+                ],
+                "summary": "Get All Variation",
+                "operationId": "f434383864b7190beb8c713b624ce3bd",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Variation"
+                ],
+                "summary": "Add Variation",
+                "operationId": "940051dd2e93bba10388ac6b930afc50",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "productId": {
+                                        "type": "integer"
+                                    },
+                                    "colorId": {
+                                        "type": "integer"
+                                    },
+                                    "thumbnail": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/variation/{id}": {
+            "get": {
+                "tags": [
+                    "Variation"
+                ],
+                "summary": "Get Variation",
+                "operationId": "938e94681ebb5fb6ca60e95b7477f253",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Variation"
+                ],
+                "summary": "Update Variation",
+                "operationId": "d03e9be05c9df9dcd8f25082106d875a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "productId": {
+                                        "type": "integer"
+                                    },
+                                    "colorId": {
+                                        "type": "integer"
+                                    },
+                                    "thumbnail": {
+                                        "type": "string"
+                                    },
+                                    "deleted": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Variation"
+                ],
+                "summary": "Delete Variation",
+                "operationId": "b26b590115f62f40ff493100c8eb7bb4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/banner": {
+            "get": {
+                "tags": [
+                    "Banner Client"
+                ],
+                "summary": "Get banner",
+                "operationId": "3505c3cc72210c529e827d0de782c101",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": [
+                    "Category Client"
+                ],
+                "summary": "Get Category",
+                "operationId": "7a744f8ab3b9a5aa6148006f060d5abd",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/categories/detail?cateId={cateId}": {
+            "get": {
+                "tags": [
+                    "Category Client"
+                ],
+                "summary": "Get Category detail",
+                "operationId": "4874cdf46b9ef2b3fecfdd848f8cf03e",
+                "parameters": [
+                    {
+                        "name": "cateId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/categories/children?parentsId={parentsId}": {
+            "get": {
+                "tags": [
+                    "Category Client"
+                ],
+                "summary": "Get subcategory ",
+                "operationId": "c1fb645e8cd92d15f7b11bda3b8bf886",
+                "parameters": [
+                    {
+                        "name": "parentsId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/collections?collectionId={collectionId}&start={start}": {
+            "get": {
+                "tags": [
+                    "Collection Client"
+                ],
+                "summary": "Get Collection",
+                "operationId": "471f2dc4f40c0c8fb7c142a3fadf3fe6",
+                "parameters": [
+                    {
+                        "name": "collectionId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/menu": {
+            "get": {
+                "tags": [
+                    "Menu Client"
+                ],
+                "summary": "Get menu",
+                "operationId": "24823b5c86e3d73086dd117494606566",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get All Product Client",
+                "operationId": "d8ded4e3d2798b048cb2f8a6aa16866c",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/products/filter": {
+            "post": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get product filter",
+                "operationId": "467ad3a71a8482ec3685f21c24a82c5d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "cateId": {
+                                        "type": "integer"
+                                    },
+                                    "start": {
+                                        "type": "integer"
+                                    },
+                                    "colors": {
+                                        "type": "arr"
+                                    },
+                                    "sizes": {
+                                        "type": "arr"
+                                    },
+                                    "sort": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "arr"
+                                    },
+                                    "limit": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/products/detail?productId={productId}": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get product detail",
+                "operationId": "f82d3a229cbdb20b481bc197bf916025",
+                "parameters": [
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/products/weekly_best?limit={limit}&cateId={cateId}": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get Weekly Best Products",
+                "operationId": "3d80a4ba8eb24b7032ef03ea5008c85f",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "cateId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/products/new_products?limit={limit}&cateId={cateId}": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get new products",
+                "operationId": "ac0406995b33caed9c47f11016b64340",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "cateId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/products/search?searchStr={searchStr}&limit={limit}": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Search for products",
+                "operationId": "ccf9867ab428e829287d5d1c00bbf5d3",
+                "parameters": [
+                    {
+                        "name": "searchStr",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/max-price": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get max price",
+                "operationId": "a7f5a1324c3294af9f92bc386b783b7d",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/productsCollection?collectionId={collectionId}&start={start}": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get product collection ",
+                "operationId": "723a3d4279a68dab3d415bbdef7035df",
+                "parameters": [
+                    {
+                        "name": "collectionId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/productsSales?salesId={salesId}&size={size}&cateId={cateId}&start={start}": {
+            "get": {
+                "tags": [
+                    "Product Client"
+                ],
+                "summary": "Get products for sale",
+                "operationId": "0a5daec250c431f1b92e2964d13230bd",
+                "parameters": [
+                    {
+                        "name": "salesId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "cateId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/sales?salesId={salesId}&start={start}": {
+            "get": {
+                "tags": [
+                    "Sales Promotion Client"
+                ],
+                "summary": "Get sales",
+                "operationId": "dc9ea666d577061ef30c65511b760797",
+                "parameters": [
+                    {
+                        "name": "salesId",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    }
+}
