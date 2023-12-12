@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Client_api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerificationMail;
 
 class AuthController extends Controller
 {
@@ -38,7 +40,8 @@ class AuthController extends Controller
             'fullname' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
             'password' => 'required',
-            'role' => 'string'
+            'phoneNumber' => 'required|string',
+            'role' => 'required|string'
         ]);
 
         if($user = User::where('email', $request->email)->first()) {
@@ -48,15 +51,15 @@ class AuthController extends Controller
             ]);
         }
 
-        $data['verification_token'] = Str::random(40);
-        $role = $request->input('role', 'Khách hàng');
+        $data['verification_token'] = Str::random(20);
         $status = $request->input('status', 'Hoạt động');
 
         $user = User::create([
-            'fullname' => $data['fullname'],
+            'name' => $data['fullname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => $role,
+            'phone_number' => $data['phoneNumber'],
+            'role' => $data['role'],
             'status' => $status,
             'verification_token' => $data['verification_token'],
         ]);
