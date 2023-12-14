@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api_admin\CategoryController;
@@ -15,8 +16,8 @@ use App\Http\Controllers\Api_admin\SalePromotionController;
 use App\Http\Controllers\Api_admin\SizeController;
 use App\Http\Controllers\Api_admin\VariantionController;
 use App\Http\Controllers\Client_api\AuthController;
-use App\Http\Controllers\Client_api\GoogleController;
 use App\Http\Controllers\Client_api\ResetPasswordController;
+use App\Http\Controllers\Client_api\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,8 +105,10 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('verify/{token}', [AuthController::class, 'verifyToken']);
 
 // Reset password
+// Route::post('reset-password', [ResetPasswordController::class, 'sendMail']);
+// Route::post('change-password', [ResetPasswordController::class,'resetPassword']);
 Route::post('reset-password', [ResetPasswordController::class, 'sendMail']);
-Route::post('change-password', [ResetPasswordController::class,'resetPassword']);
+Route::post('change-password', [ResetPasswordController::class, 'resetPassword']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {

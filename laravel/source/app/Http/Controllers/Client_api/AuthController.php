@@ -37,10 +37,10 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $data = $request->validate([
-            'fullname' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
             'password' => 'required',
-            'phoneNumber' => 'required|string',
+            'phone_number' => 'required|string',
             'role' => 'required|string'
         ]);
 
@@ -55,10 +55,10 @@ class AuthController extends Controller
         $status = $request->input('status', 'Hoạt động');
 
         $user = User::create([
-            'name' => $data['fullname'],
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'phone_number' => $data['phoneNumber'],
+            'phone_number' => $data['phone_number'],
             'role' => $data['role'],
             'status' => $status,
             'verification_token' => $data['verification_token'],
