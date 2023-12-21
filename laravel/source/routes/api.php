@@ -83,9 +83,8 @@ Route::get('/productsCollection', 'App\Http\Controllers\Client_api\ProductContro
 Route::get('/productsSales', 'App\Http\Controllers\Client_api\ProductController@get_productsSale');
 
 // Routes category client
-Route::get('/categories', 'App\Http\Controllers\Client_api\CategoryController@get_category');
-Route::get('/categories/detail', 'App\Http\Controllers\Client_api\CategoryController@get_category_detail');
-Route::get('/categories/children', 'App\Http\Controllers\Client_api\CategoryController@get_subcate');
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::post('/category', [CategoryController::class, 'store']);
 
 // Routes colection client
 Route::get('/collections', 'App\Http\Controllers\Client_api\CollectionController@get_collection');

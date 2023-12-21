@@ -46,7 +46,11 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        return  category::where('name', 'like', '%' . trim($request->keyword) . '%')->paginate($request->pagesize);
+        $category = category::where('name_category', 'like', '%' . trim($request->keyword) . '%')->paginate($request->pagesize);
+        return response()->json([
+            'type' => 'success',
+            'data' =>  $category,
+        ]);
     }
 
     /**
@@ -96,7 +100,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return category::create($request->all());
+        $category = category::create([
+            'name_category' => $request->input('name_category'),
+        ]);
+        return response()->json([
+            'message' => 'Them danh muc thanh cong',
+            'type' => 'success',
+            'data' =>  $category,
+        ]);
     }
 
     /**
@@ -179,11 +190,6 @@ class CategoryController extends Controller
     {
         $category = category::find($request->id);
         $category->name = $request->name;
-        $category->visible = $request->visible;
-        $category->text = $request->text;
-        $category->img = $request->img;
-        $category->parentsId = $request->parentsId;
-        $category->deleted = $request->deleted;
         return $category->save();
     }
 
