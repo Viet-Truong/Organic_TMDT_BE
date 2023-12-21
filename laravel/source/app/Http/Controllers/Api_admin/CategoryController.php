@@ -13,37 +13,6 @@ use OpenApi\Annotations as OA;
 
 class CategoryController extends Controller
 {
-    /**
-     * Get All Category
-     * @OA\Get(
-     *      path="/api/category",
-     *      @OA\Parameter(
-     *          name="keyword",
-     *          in="query",
-     *          required=false,
-     *          description="",
-     *          @OA\Schema(
-     *              type="string"
-     *          ),
-     *      ),
-     *      @OA\Parameter(
-     *          name="pagesize",
-     *          in="query",
-     *          required=false,
-     *          description="",
-     *          @OA\Schema(
-     *              type="integer"
-     *          ),
-     *      ),
-     *      tags={"Category"},
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *      ),
-     *     @OA\PathItem (
-     *     ),
-     * )
-     */
     public function index(Request $request)
     {
         $category = category::where('name_category', 'like', '%' . trim($request->keyword) . '%')->paginate($request->pagesize);
@@ -53,51 +22,6 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Add Category
-     * @OA\Post(
-     *      path="/api/category",
-     *      tags={"Category"},
-     *   @OA\RequestBody(
-     *     required=true,
-     *     @OA\MediaType(
-     *       mediaType="multipart/form-data",
-     *       @OA\Schema(
-     *         @OA\Property(
-     *           property="name",
-     *           type="string",
-     *         ),
-     *      @OA\Property(
-     *           property="visible",
-     *           type="int",
-     *         ),
-     *       @OA\Property(
-     *           property="text",
-     *           type="string",
-     *         ),
-     *       @OA\Property(
-     *           property="img",
-     *           type="string",
-     *         ),
-     *       @OA\Property(
-     *           property="parentsId",
-     *           type="integer",
-     *         ),
-     *       @OA\Property(
-     *           property="deleted",
-     *           type="int",
-     *         ),
-     *       ),
-     *     ),
-     *   ),
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *      ),
-     *     @OA\PathItem (
-     *     ),
-     * )
-     */
     public function store(Request $request)
     {
         $category = category::create([
@@ -137,60 +61,23 @@ class CategoryController extends Controller
         return $category;
     }
 
-    /**
-     * Add Category
-     * @OA\Put(
-     *      path="/api/category/{id}",
-     *      tags={"Category"},
-     *   @OA\RequestBody(
-     *     required=true,
-     *     @OA\MediaType(
-     *       mediaType="application/json",
-     *       @OA\Schema(
-     *         @OA\Property(
-     *           property="id",
-     *           type="int",
-     *         ),
-     *         @OA\Property(
-     *           property="name",
-     *           type="string",
-     *         ),
-     *      @OA\Property(
-     *           property="visible",
-     *           type="int",
-     *         ),
-     *       @OA\Property(
-     *           property="text",
-     *           type="string",
-     *         ),
-     *       @OA\Property(
-     *           property="img",
-     *           type="string",
-     *         ),
-     *       @OA\Property(
-     *           property="parentsId",
-     *           type="integer",
-     *         ),
-     *       @OA\Property(
-     *           property="deleted",
-     *           type="int",
-     *         ),
-     *       ),
-     *     ),
-     *   ),
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *      ),
-     *     @OA\PathItem (
-     *     ),
-     * )
-     */
     public function update(Request $request)
     {
         $category = category::find($request->id);
-        $category->name = $request->name;
-        return $category->save();
+        if(!category::where('id', $request->id)->first()) {
+            return response()->json([
+                'message' => 'loi',
+                'type' => 'error',
+            ]);
+        }
+        $category->name_category = $request->name_category;
+        $category->save();
+        $category = category::get();
+        return response()->json([
+            'message' => 'Sua danh muc thanh cong',
+            'type' => 'success',
+            'data' =>  $category,
+        ]);
     }
 
     /**

@@ -85,6 +85,7 @@ Route::get('/productsSales', 'App\Http\Controllers\Client_api\ProductController@
 // Routes category client
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/category', [CategoryController::class, 'store']);
+Route::put('/categories/{id}', [CategoryController::class, 'update']);
 
 // Routes colection client
 Route::get('/collections', 'App\Http\Controllers\Client_api\CollectionController@get_collection');
