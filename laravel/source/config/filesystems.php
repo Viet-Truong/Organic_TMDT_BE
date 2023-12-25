@@ -35,6 +35,30 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'google' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+
+        'avatar' => [
+            'driver' => 'google',
+            'clientId' => env('SECOND_GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('SECOND_GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('SECOND_GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('SECOND_GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+
+        'product' => [
+            'driver' => 'google',
+            'clientId' => env('THIRD_GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('THIRD_GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('THIRD_GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('THIRD_GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

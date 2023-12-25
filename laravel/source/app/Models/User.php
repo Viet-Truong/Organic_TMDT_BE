@@ -2,22 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasApiTokens;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+    const BUYER = 'Người mua hàng';
+    const SELLER = 'Người bán hàng';
+
+    const STATUS_ACTIVE = 'Hoạt động';
+    const STATUS_LOCKED = 'Khoá';
     protected $fillable = [
         'name',
         'email',
@@ -33,6 +37,11 @@ class User extends Authenticatable
         'avatar',
         'verification_token',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'shop_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

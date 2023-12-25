@@ -4,16 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
     use HasFactory;
-    protected $table = 'product';
-    protected $primaryKey = 'id';
-    protected $fillable = ['name', 'price', 'description', 'img', 'categoryId', 'deleted'];
+    use SoftDeletes;
+    protected $table = 'products';
+    protected $primaryKey = 'product_id';
+    protected $fillable = ['shop_id','name', 'price', 'description', 'category_id'];
 
-    public function Variants()
+    public function Images()
     {
-        return $this->hasMany(Variation::class, 'productId', 'id');
+        return $this->hasMany(Image::class, 'image_id','image_id');
     }
+
+    public function Users()
+    {
+        return $this->belongsTo(User::class, 'shop_id','id');
+    }
+
+    public function Categories()
+    {
+        return $this->belongsTo(category::class, 'category_id','id');
+    }
+
+
 }

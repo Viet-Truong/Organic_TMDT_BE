@@ -14,8 +14,12 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedInteger('product_id');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade'); // Khóa ngoại liên kết với bảng 'motos'
+            $table->increments('image_id')->unsigned(); // Khóa chính không tự động tăng
+            $table->string('url')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
