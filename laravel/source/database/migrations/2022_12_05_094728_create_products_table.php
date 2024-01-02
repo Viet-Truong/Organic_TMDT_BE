@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->foreign('shop_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('price')->nullable();
+            $table->string('quantity')->nullable();
             $table->string('description')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

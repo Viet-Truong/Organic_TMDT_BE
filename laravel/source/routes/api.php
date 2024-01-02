@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Routes product client repository pattern
+Route::get('/getAllProduct', [ProductController::class, 'index']);
 Route::post('/addProduct', [ProductController::class, 'store']);
 // Routes category client
 Route::get('/categories', [CategoryController::class, 'index']);

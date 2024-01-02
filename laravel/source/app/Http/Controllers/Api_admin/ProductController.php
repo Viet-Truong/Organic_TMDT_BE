@@ -18,18 +18,24 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        // return Product::all();
-        $pageSize = 10;
-        if ($request->pageSize) {
-            $pageSize = $request->pageSize;
+        $query = Product::with('Images');
+
+        // Kiểm tra xem có truyền tham số 'q' không
+        if ($request->has('q')) {
+            $query->where('name', 'like', '%' . $request->input('q') . '%');
         }
-        $listProduct = DB::table('product')
-            ->join('category', 'product.categoryId', '=', 'category.Id')
-            ->where('product.deleted', '=', 0)
-            ->where('product.name', 'LIKE', '%' . $request->keyword . '%')
-            ->select('product.*', 'category.name AS categoryName')
-            ->paginate($pageSize);
-        return $listProduct;
+
+        $products = $query->get();
+
+        $productsInfo = [];
+        foreach ($products as $product) {
+            $productsInfo[] = $this->formatProductData($product);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $productsInfo
+        ]);
     }
     public function store(Request $request)
     {
@@ -60,6 +66,7 @@ class ProductController extends Controller
                 'shop_id' => $request->input('shop_id'),
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
+                'quantity' => $request->input('quantity'),
                 'description' => $request->input('description'),
                 'category_id' => $categoryId,
             ]);
@@ -83,28 +90,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Get Product
-     * @OA\Get(
-     *      path="/api/product/{id}",
-     *      @OA\Parameter(
-     *          name="id",
-     *          in="path",
-     *          required=false,
-     *          description="",
-     *          @OA\Schema(
-     *              type="int"
-     *          ),
-     *     ),
-     *      tags={"Product"},
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *      ),
-     *     @OA\PathItem (
-     *     ),
-     * )
-     */
     public function show($id)
     {
         // return Product::find($id);
@@ -126,92 +111,7 @@ class ProductController extends Controller
     }
 
 
-    /**
-     * Update Producy
-     * @OA\Put(
-     *      path="/api/product/{id}",
-     *      tags={"Product"},
-     *   @OA\RequestBody(
-     *     required=true,
-     *     @OA\MediaType(
-     *       mediaType="application/json",
-     *       @OA\Schema(
-     *         @OA\Property(
-     *           property="id",
-     *           type="int",
-     *         ),
-     *         @OA\Property(
-     *           property="name",
-     *           type="string",
-     *         ),
-     *      @OA\Property(
-     *           property="price",
-     *           type="float",
-     *         ),
-     *       @OA\Property(
-     *           property="description",
-     *           type="string",
-     *         ),
-     *       @OA\Property(
-     *           property="img",
-     *           type="string",
-     *         ),
-     *       @OA\Property(
-     *           property="categoryId",
-     *           type="integer",
-     *         ),
-     *       @OA\Property(
-     *           property="deleted",
-     *           type="int",
-     *         ),
-     *      @OA\Property(
-     *          type="array",
-     *          property="variant",
-     *          @OA\Items(
-     *                  @OA\Property(
-     *                      property="colorId",
-     *                      type="int",
-     *                  ),
-     *                  @OA\Property(
-     *                      property="thumbnail",
-     *                      type="string",
-     *                  ),
-     *                  @OA\Property(
-     *                      property="deleted",
-     *                      type="int",
-     *                  ),
-     *                  @OA\Property(
-     *                      type="array",
-     *                      property="sizes",
-     *                      @OA\Items(
-     *                          @OA\Property(
-     *                              property="size",
-     *                              type="integer",
-     *                          ),
-     *                          @OA\Property(
-     *                              property="quantity",
-     *                              type="integer",
-     *                          ),
-     *                          @OA\Property(
-     *                              property="deleted",
-     *                              type="integer",
-     *                          )
-     *                      )
-     *                  )
-     * 
-     *              )
-     *          )
-     *       ),
-     *     ),
-     *   ),
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *      ),
-     *     @OA\PathItem (
-     *     ),
-     * )
-     */
+    
     public function update(Request $request, $id)
     {
         $product = Product::find($request->id);
@@ -265,27 +165,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Delete Product
-     * @OA\Delete(
-     *      path="/api/product/{id}",
-     *      @OA\Parameter(
-     *          name="id",
-     *          in="path",
-     *          required=false,
-     *          @OA\Schema(
-     *              type="int"
-     *          ),
-     *     ),
-     *      tags={"Product"},
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *      ),
-     *     @OA\PathItem (
-     *     ),
-     * )
-     */
     public function destroy($id)
     {
         $product = Product::find($id);
@@ -296,5 +175,23 @@ class ProductController extends Controller
         } else {
             return "500";
         }
+    }
+
+    //GET FIELD URL ABOUT TABLE IMAGES
+    private function getImageUrls($images){
+        return $images->pluck('url')->toArray();
+    }
+
+    private function formatProductData($product){
+        return [
+            'product_id' => $product->product_id,
+            'shop_id' => $product->shop_id,
+            'name' => $product->name,
+            'price' => $product->price,
+            'quantity' => $product->quantity,
+            'description' => $product->description,
+            'category' => $product->category_id,
+            'images' => $this->getImageUrls($product->Images),
+        ];
     }
 }

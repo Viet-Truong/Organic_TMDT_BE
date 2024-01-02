@@ -12,11 +12,11 @@ class Product extends Model
     use SoftDeletes;
     protected $table = 'products';
     protected $primaryKey = 'product_id';
-    protected $fillable = ['shop_id','name', 'price', 'description', 'category_id'];
+    protected $fillable = ['shop_id','name', 'price', 'quantity', 'description', 'category_id'];
 
     public function Images()
     {
-        return $this->hasMany(Image::class, 'image_id','image_id');
+        return $this->hasMany(Image::class, 'product_id','product_id');
     }
 
     public function Users()
